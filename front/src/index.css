@@ -1,13 +1,52 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+}
+#main-container {
+  max-width: 1400px;
+  margin: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navi {
+  display: flex;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.flex-card {
+  width: 33%;
+  flex: 1 1 30%;
+  border: solid grey 1px;
+  transition: 0.4s;
+  padding: 0 12px 12px 12px;
+}
+.flex-card>h1,h2,h3,h4,h5,h6 {
+  margin: 10px 0;
+}
+
+.repoInfo {
+  height: auto;
+  transition: 0.4s;
+}
+.hidden {
+  height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+}
+.repoLink {
+  display: block;
+}
+.repoLink {
+  color: black;
+  text-decoration: none;
+  
+}
+.repoLink:hover {
+  color:orange;
+}
+.repoLink:active, :focus {
+  color:orange;
 }

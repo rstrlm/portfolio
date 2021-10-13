@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './content/Home'
 import Notes from './content/Notes'
 import Skills from './content/Skills'
+
 import {
   BrowserRouter as Router,
   Switch, Route, Link
@@ -17,12 +18,13 @@ function App() {
 
   return (
     <Router>
-      <div>
+      
+      <nav className="navi">
         <Link style={padding} to="/">home</Link>
         <Link style={padding} to="/notes">notes</Link>
         <Link style={padding} to="/skills">skills</Link>
-      </div>
-
+      </nav>
+      <main className="container">
       <Switch>
         <Route path="/notes">
           <Notes />
@@ -34,9 +36,9 @@ function App() {
           <Home />
         </Route>
       </Switch>
-
+      </main>
       <div>
-        <i>Note app, Department of Computer Science 2021</i>
+        <p>Just creating another piece of art, hopefully this will be ready in time</p>
       </div>
     </Router>
   )

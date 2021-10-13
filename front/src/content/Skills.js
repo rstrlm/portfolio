@@ -6,10 +6,10 @@ import skillService from '../services/skills'
 const SkillList = ({ skills, stars, reps }) => {
     // console.log(skills, 'skilllist')
     return (
-        <article>
+        <article className="flex-container">
             {skills.map(s => {
                 return (
-                        <Skill key={s.id} skill={s} reps={reps} stars={stars} />
+                    <Skill key={s.id} skill={s} reps={reps} stars={stars} />
                 )
             }
             )}
@@ -18,47 +18,55 @@ const SkillList = ({ skills, stars, reps }) => {
 }
 
 const Skills = () => {
-    // const skills = [   
-    //             {
-    //                 name: 'css',
-    //                 id: 1,
-    //                 value: 4
-    //             },
-    //             {
-    //                 name: 'html',
-    //                 id: 2,
-    //                 value: 4
-    //             },
-    //             {
-    //                 name: 'javascript',
-    //                 id: 3,
-    //                 value: 4
-    //             },
-    //             {
-    //                 name: 'php',
-    //                 id: 4,
-    //                 value: 4
-    //             },
-    //             {
-    //                 name: 'java',
-    //                 id: 5,
-    //                 value: 4
-    //             }
-    // ]
+
+    /** hardcoded skills if no database access
+        const skills = [   
+                    {
+                        name: 'css',
+                        id: 1,
+                        value: 4
+                    },
+                    {
+                        name: 'html',
+                        id: 2,
+                        value: 4
+                    },
+                    {
+                        name: 'javascript',
+                        id: 3,
+                        value: 4
+                    },
+                    {
+                        name: 'php',
+                        id: 4,
+                        value: 1
+                    },
+                    {
+                        name: 'java',
+                        id: 5,
+                        value: 2
+                    }
+        ]
+    */
+
     const [skills, setSkills] = useState([])
     const [repos, setRepos] = useState([])
     const [starred, setStarred] = useState([])
     const [reps, setReps] = useState([])
     const [stars, setStars] = useState([])
-    
+
+
+    // fetch skills from database
     useEffect(() => {
         skillService
             .getAll()
             .then(res => {
                 setSkills(res)
             })
-}, []);
+    }, []);
 
+
+    //fetch my repos from github
     useEffect(() => {
         axios.get('https://api.github.com/users/rstrlm/repos')
             .then(res => {
@@ -69,6 +77,8 @@ const Skills = () => {
                 console.log('error', e)
             })
     }, []);
+
+    //fetch my starred repos from github
     useEffect(() => {
         axios.get('https://api.github.com/users/rstrlm/starred')
             .then(res => {
@@ -80,12 +90,16 @@ const Skills = () => {
             })
     }, []);
 
+
+    //function to get promise for repos languages
     const getData = async (url) => {
         const { data: language } = await axios.get(url)
         // console.log('get lan', language)
         return language
     }
 
+
+    //getting languages for repos to easily access them
     useEffect(() => {
         const handleStars = (star) => {
             setStars([...new Set([].concat(...stars, ...star))])
@@ -93,7 +107,6 @@ const Skills = () => {
         const handleRepos = (repo) => {
             setReps([...new Set([].concat(...reps, ...repo))]);
         }
-
         const getLanguage = async (arr, set) => {
             // console.log('get language', arr)
             const newArr = await Promise.all(arr.map(async (a) => {
