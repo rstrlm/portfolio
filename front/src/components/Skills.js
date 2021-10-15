@@ -137,6 +137,7 @@ const Skills = () => {
     }, [starred]);
     return (
         <>
+            <h2>Here you can find skills that I'm familiar with</h2>
             <SkillList stars={stars} skills={skills} reps={reps} />
         </>
     )

@@ -21,9 +21,11 @@ function App() {
     <Router>
       
       <nav className="navi">
+        <div className="navi-wrapper">
         <Link style={padding} to="/">home</Link>
         <Link style={padding} to="/porfolio">Portfolio</Link>
         <Link style={padding} to="/skills">skills</Link>
+        </div>
       </nav>
       <main className="container">
       <Switch>

@@ -9,10 +9,14 @@ body {
   background-color: #f5fcff;
 }
 .container {
+  text-align: center;
   max-width: 1400px;
   margin: auto;
   flex-grow: 1;
   padding: 10px;
+}
+.container h2 {
+  padding: 25px;
 }
 a {
   color: black;
@@ -33,7 +37,13 @@ a {
   background-color: #444;
   color: white;
 }
-
+.navi-wrapper {
+  display: flex;
+  align-items: center;
+  height: 71px;
+  padding: auto;
+  justify-content: space-around;
+}
 .navi {
   background-color: #444;
   display: flex;
@@ -133,7 +143,7 @@ a {
   .flex-card {
     width: 95%;
     flex: 1 100%;
-    padding: 0 12px;
+    padding: 2px 12px;
   }
   .footer {
     height: 100px;
