@@ -130,9 +130,14 @@ a {
   height: 150px;
   width: 100%;
 }
+.left {
+  display: inline-block;
+  width: 30%;
+  padding: 25px;
+}
 .center {
   display: inline-block;
-  width: 40%;
+  width: 30%;
   padding: 25px;
 }
 

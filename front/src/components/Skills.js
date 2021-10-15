@@ -99,7 +99,7 @@ const Skills = () => {
     }
 
 
-    //getting languages for repos to easily access them
+    //getting languages for repos to easily access them and setting them with setState
     useEffect(() => {
         const handleStars = (star) => {
             setStars([...new Set([].concat(...stars, ...star))])

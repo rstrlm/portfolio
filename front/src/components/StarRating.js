@@ -1,10 +1,7 @@
-import React, {useState} from "react"
+import React from "react"
 
-const Balls = ({svg}) => {
-    return svg
-}
-
-const StarRating = ({value}) => {
+// function to create skill rating from 
+const BallRating = ({value}) => {
 
     const limit = 5;
     let activeArr = []
@@ -52,4 +49,4 @@ const StarRating = ({value}) => {
 }
 
 
-export default StarRating
+export default BallRating

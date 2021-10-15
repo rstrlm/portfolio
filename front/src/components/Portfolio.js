@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Notes = () => {
+
+// This will be added later, need to 
+const Portfolio = () => {
     return (
-      <div>Notes</div>
+      <div>Portfolio</div>
     )
   }
 
-export default Notes
+export default Portfolio

@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+// footer is where contact information is placed 
 const Footer = () => {
     return (
       <footer className="footer">
@@ -8,8 +10,8 @@ const Footer = () => {
               links to socialmedia
             </article>
             <article className="contact">
-            email: <a href="mailto:risto.reilama@gmail.com">risto.reilama@gmail.com</a> 
-            phone: <a href="tel:+358401743425">+358401743425</a>
+            email: <a href="mailto:email@email.com">email</a> 
+            phone: <a href="tel:+3584012341234">+3584012341234</a>
             </article>
           
           </section>

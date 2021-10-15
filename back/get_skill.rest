@@ -1,0 +1,2 @@
+GET http://localhost:3001/api/skills
+Content-Type: application/json

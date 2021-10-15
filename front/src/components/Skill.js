@@ -8,9 +8,10 @@ const Skill = ({ skill, stars, reps }) => {
     const toggleVisibility = () => {
         setVisible(!visible)
     }
-
+    // Buttons text 
     const button = visible ? 'show less' : 'show more'
-
+ 
+    // Filter that gets repos and language as props
     const repoFilter = (rep, language) => {
         const repos = rep.filter(r => {
             const keys = Object.keys(r.lan).reduce((des, key) => {
@@ -29,11 +30,7 @@ const Skill = ({ skill, stars, reps }) => {
         return repos
     }
 
-    const SkillValue = ({ value }) => {
-        return <p>{value}</p>
-    }
-
-    //funtions that show repos
+    // Function to shows my repos by language
     const Repos = ({ repos, language }) => {
         const reposToShow = repoFilter(repos, language)
         return (
@@ -51,7 +48,7 @@ const Skill = ({ skill, stars, reps }) => {
 
     }
 
-    // Function to show my starred repos by language
+    // Function to shows my starred repos by language
     const Starred = ({ stars, language }) => {
         const reposToShow = repoFilter(stars, language)
 
