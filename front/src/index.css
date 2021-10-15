@@ -122,9 +122,18 @@ a {
   color:orange;
 }
 .footer {
+  color: #fff;
+  display: flex;
+  justify-items: center;
+  justify-content: space-evenly;
   background-color: #444;
   height: 150px;
   width: 100%;
+}
+.center {
+  display: inline-block;
+  width: 40%;
+  padding: 25px;
 }
 
 @media (max-width: 700px) {
