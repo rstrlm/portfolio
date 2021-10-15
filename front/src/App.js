@@ -1,7 +1,8 @@
 import React from 'react'
-import Home from './content/Home'
-import Notes from './content/Notes'
-import Skills from './content/Skills'
+import Home from './components/Home'
+import Portfolio from './components/Portfolio'
+import Skills from './components/Skills'
+import Footer from './components/Footer'
 
 import {
   BrowserRouter as Router,
@@ -21,13 +22,13 @@ function App() {
       
       <nav className="navi">
         <Link style={padding} to="/">home</Link>
-        <Link style={padding} to="/notes">notes</Link>
+        <Link style={padding} to="/porfolio">Portfolio</Link>
         <Link style={padding} to="/skills">skills</Link>
       </nav>
       <main className="container">
       <Switch>
-        <Route path="/notes">
-          <Notes />
+        <Route path="/porfolio">
+          <Portfolio />
         </Route>
         <Route path="/skills">
           <Skills />
@@ -37,9 +38,8 @@ function App() {
         </Route>
       </Switch>
       </main>
-      <div>
-        <p>Just creating another piece of art, hopefully this will be ready in time</p>
-      </div>
+      <Footer />
+
     </Router>
   )
   

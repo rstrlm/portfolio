@@ -34,7 +34,9 @@ app.post('/api/skills', (req, res) => {
   })
 })
 
-
+app.get('*', (req, res) => {
+  res.redirect('/')
+})
 
 
 app.use(morgan(':method :url :status :response-time ms :type '))
