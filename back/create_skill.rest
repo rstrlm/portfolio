@@ -2,6 +2,6 @@ POST http://localhost:3001/api/skills
 Content-Type: application/json
 
     {
-    "name": "c#",
-    "value": "1"
+    "name": "javascript",
+    "value": 3
     }

@@ -13,6 +13,8 @@ node_modules/
 /build
 
 # misc
+/gfx
+gfx/
 .DS_Store
 .env.local
 .env

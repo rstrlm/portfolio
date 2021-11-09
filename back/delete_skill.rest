@@ -1,0 +1,2 @@
+DELETE http://localhost:3001/api/skills/618906b57208e612906ddd3c
+Content-Type: application/json

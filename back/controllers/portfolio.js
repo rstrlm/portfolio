@@ -1,5 +1,5 @@
-const skillRouter = require('express').Router()
-const Skill = require('../models/skill')
+const portfolioRouter = require('express').Router()
+const Skill = require('../models/portfolio')
 require('dotenv').config()
 
 const skills = [
@@ -30,7 +30,7 @@ const skills = [
     }
   ]
 
-skillRouter.get('/', (req, res) => {
+  portfolioRouter.get('/', (req, res) => {
     if (!process.env.MONGODB_URI) {
       console.log('no process env for mongo, loading hardcoded skills')
       res.send(skills)
@@ -41,7 +41,7 @@ skillRouter.get('/', (req, res) => {
     }
   })
   
-skillRouter.post('/', (req, res) => {
+  portfolioRouter.post('/', (req, res) => {
     const body = req.body
     if (body.name === undefined || body.value === undefined) {
       return res.status(400).json({ error: 'name or value missing' })
@@ -55,26 +55,13 @@ skillRouter.post('/', (req, res) => {
     })
   })
   
-  skillRouter.get('/:id', async (req, res ) => {
+  portfolioRouter.get('/:id', async (req, res ) => {
       const skill = await Skill.findById(req.params.id)
       if (skill) {
           res.json(skill.toJSON())
       } else {
           res.status(404).end()
       }
-  })
-
-  skillRouter.delete('/:id', async (request, response) => {
-    // const user = await decodeToken(request)
-    const skill = await Skill.findById(request.params.id)
-    // console.log('blog', blog.user, ' user ', user._id);
-    // if(user._id.toString() === blog.user.toString()) {
-    if(skill) {
-    await Skill.findByIdAndRemove(request.params.id)
-    response.status(204).end()
-    } else {
-    response.status(401).end()
-  } 
   })
 
   module.exports = skillRouter

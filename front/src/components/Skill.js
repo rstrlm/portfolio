@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import StarRating from './StarRating'
+import StarRating from './BallRating'
 
 const Skill = ({ skill, stars, reps }) => {
 
@@ -11,7 +11,9 @@ const Skill = ({ skill, stars, reps }) => {
     // Buttons text 
     const button = visible ? 'show less' : 'show more'
  
-    // Filter that gets repos and language as props
+    /**
+     *  Filter function to scan skill names and link repositorys to them.
+     */
     const repoFilter = (rep, language) => {
         const repos = rep.filter(r => {
             const keys = Object.keys(r.lan).reduce((des, key) => {
@@ -38,7 +40,7 @@ const Skill = ({ skill, stars, reps }) => {
                 <h4>My repos that use the language</h4>
                 {reposToShow.length > 0 ? reposToShow.map((r) => {
                     return (
-                        <a className="repoLink" key={r.repos.id} href={r.repos.svn_url} >{r.repos.name}</a>
+                        <a className="repoLink" key={r.repos.id} href={r.repos.svn_url} rel="noreferrer noopener" target="_blank" >{r.repos.name}</a>
                     )
                 }) :
                     <h6>no repos</h6>
@@ -51,13 +53,12 @@ const Skill = ({ skill, stars, reps }) => {
     // Function to shows my starred repos by language
     const Starred = ({ stars, language }) => {
         const reposToShow = repoFilter(stars, language)
-
         return (
             <>
                 <h4>Starred repos that use the language</h4>
                 {reposToShow.length > 0 ? reposToShow.map((r) => {
                     return (
-                        <a className="repoLink" key={r.repos.id} href={r.repos.svn_url} >{r.repos.name}</a>
+                        <a className="repoLink" key={r.repos.id} href={r.repos.svn_url}  rel="noreferrer noopener" target="_blank">{r.repos.name}</a>
                     )
                 }) :
                     <h6>no repos</h6>
@@ -69,10 +70,8 @@ const Skill = ({ skill, stars, reps }) => {
     return (
         <section className="flex-card">
             <header className="card-header"><h3>{skill.name}</h3><StarRating value={skill.value} /><button className="showhide" onClick={toggleVisibility}>{button}</button></header>
-
             {visible ?
-                <section className="repo-info">
-         
+                <section className="repo-info">     
                     <Repos language={skill.name} repos={reps} />
                     <Starred language={skill.name} stars={stars} />
                 </section> :

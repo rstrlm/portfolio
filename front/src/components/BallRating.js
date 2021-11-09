@@ -1,11 +1,16 @@
 import React from "react"
 
-// function to create skill rating from 
-const BallRating = ({value}) => {
 
-    const limit = 5;
+/**
+ *  function to create skill rating from
+ *  limit marks the maximum value for skill understanding 5/7
+ *  
+*/ 
+const BallRating = ({value}) => {
+    
+    const limit = 7;
     let activeArr = []
-    const active = <svg width="16" height="16">
+    const active = 
     <circle
         cx={7}
         cy={7}
@@ -14,8 +19,7 @@ const BallRating = ({value}) => {
         strokeWidth={"1"}
         fill={"#8FB1CC"}
     />
-    </svg>
-    const empty = <svg width="16" height="16">
+    const empty = 
     <circle
         cx={7}
         cy={7}
@@ -24,7 +28,7 @@ const BallRating = ({value}) => {
         strokeWidth={"1"}
         fill={"#EEECF1"}
     />
-        </svg>
+     
 
     for(let i = 0; i < limit; i++) {
         if(i < value) {
@@ -34,13 +38,13 @@ const BallRating = ({value}) => {
         }
     }
 
-    console.log(activeArr)
-
+    // console.log(activeArr)
+    
 
     return (
             <span>
-                {activeArr.map(a => {
-                    return a
+                {activeArr.map((ball, index) => {
+                    return <svg width="16" height="16" key={index}>{ball}</svg>
                 })}
             </span>
     )

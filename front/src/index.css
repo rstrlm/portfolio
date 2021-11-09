@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
+
 body {
   margin: 0;
-
+  font-family: 'Roboto', sans-serif;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 #main-container {
+  margin-top: 71px;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -45,6 +51,9 @@ a {
   justify-content: space-around;
 }
 .navi {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #444;
   display: flex;
   align-items: center;
@@ -94,7 +103,14 @@ a {
   color: #000;
   border-bottom: solid 1px grey;
 }
-
+.me-container {
+  background-image: url('./gfx/me.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  
+}
 .repo-info {
   height: 300px;
   min-height: 0;
@@ -104,6 +120,7 @@ a {
 .hidden {
   height: 0;
   opacity: 0;
+  display: none;
   overflow: hidden;
   
 }

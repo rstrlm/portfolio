@@ -22,5 +22,5 @@ const getAll = () => {
 //   return request.then(response => response.data)
 // }
 // export default { getAll, create, update, remove }
-
+// eslint-disable-next-line
 export default { getAll }

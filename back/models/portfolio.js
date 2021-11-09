@@ -1,22 +1,24 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
 
-const skillSchema = new mongoose.Schema({
+const portfolioSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
     },
-    value: {
-        type: Number,
-        min: [0, 'No negative number'],
-        max: [7, 'No more then 7'],
+    uri: {
+        type: String,
         required: true,
     },
+    img: {
+        type: String,
+        required: false,
+    }
 })
 
-skillSchema.plugin(uniqueValidator)
+portfolioSchema.plugin(uniqueValidator)
 
-skillSchema.set('toJSON', {
+portfolioSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
@@ -24,4 +26,4 @@ skillSchema.set('toJSON', {
   }
 })
 
-module.exports = mongoose.model('Skill', skillSchema)
+module.exports = mongoose.model('Portfolio', portfolioSchema)

@@ -1,7 +1,6 @@
 import React from 'react'
 import Home from './components/Home'
-import Portfolio from './components/Portfolio'
-import Skills from './components/Skills'
+import Login from './components/Login'
 import Footer from './components/Footer'
 
 import {
@@ -23,21 +22,19 @@ function App() {
       <nav className="navi">
         <div className="navi-wrapper">
         <Link style={padding} to="/">home</Link>
-        <Link style={padding} to="/porfolio">Portfolio</Link>
         <Link style={padding} to="/skills">skills</Link>
+        <Link style={padding} to="/porfolio">Portfolio</Link>
         </div>
       </nav>
       <main className="container">
       <Switch>
-        <Route path="/porfolio">
-          <Portfolio />
-        </Route>
-        <Route path="/skills">
-          <Skills />
+      <Route path="/login">
+          <Login />
         </Route>
         <Route path="/">
           <Home />
         </Route>
+
       </Switch>
       </main>
       <Footer />

@@ -19,36 +19,6 @@ const SkillList = ({ skills, stars, reps }) => {
 
 const Skills = () => {
 
-    /** hardcoded skills if no database access
-        const skills = [   
-                    {
-                        name: 'css',
-                        id: 1,
-                        value: 4
-                    },
-                    {
-                        name: 'html',
-                        id: 2,
-                        value: 4
-                    },
-                    {
-                        name: 'javascript',
-                        id: 3,
-                        value: 4
-                    },
-                    {
-                        name: 'php',
-                        id: 4,
-                        value: 1
-                    },
-                    {
-                        name: 'java',
-                        id: 5,
-                        value: 2
-                    }
-        ]
-    */
-
     const [skills, setSkills] = useState([])
     const [repos, setRepos] = useState([])
     const [starred, setStarred] = useState([])
@@ -56,12 +26,12 @@ const Skills = () => {
     const [stars, setStars] = useState([])
 
 
-    // fetch skills from database
+    // fetch skills and sort it by value from highest to lowest
     useEffect(() => {
         skillService
             .getAll()
             .then(res => {
-                setSkills(res)
+                setSkills(res.sort((a, b) => b.value - a.value))
             })
     }, []);
 
