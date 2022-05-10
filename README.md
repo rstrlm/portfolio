@@ -5,7 +5,7 @@
 
 Idea from 'homework' assignment for Futurices academy project
 
-**Currently on development** 
+**Currently on hold** 
 
 Planning on making it my portfolio page when finished
 
